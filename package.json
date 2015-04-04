@@ -1,0 +1,29 @@
+{
+  "name": "mocha-html-dot-reporter",
+  "version": "0.0.1",
+  "description": "A Mocha browser reporter that draws a line of dots and “F”s.",
+  "main": "index.js",
+  "scripts": {
+    "test": "make"
+  },
+  "devDependencies": {
+    "lintspaces-cli": "0.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gurdiga/mocha-html-dot-reporter.git"
+  },
+  "keywords": [
+    "mocha",
+    "reporter",
+    "browser",
+    "html",
+    "dot"
+  ],
+  "author": "Vlad GURDIGA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gurdiga/mocha-html-dot-reporter/issues"
+  },
+  "homepage": "https://github.com/gurdiga/mocha-html-dot-reporter"
+}

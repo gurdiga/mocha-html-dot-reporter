@@ -1,0 +1,51 @@
+{
+  "bitwise": true,
+  "camelcase": true,
+  "eqeqeq": true,
+  "immed": true,
+  "indent": 2,
+  "noarg": true,
+  "noempty": true,
+  "undef": true,
+  "unused": true,
+  "trailing": true,
+  "maxdepth": 4,
+  "maxcomplexity": 4,
+  "white": false,
+  "sub": true,
+  "evil": true,
+  "globalstrict": true,
+  "-W030": true,
+
+  "globals": {
+    "window": false,
+    "location": false,
+    "document": false,
+    "setTimeout": false,
+    "clearTimeout": false,
+    "console": false,
+    "localStorage": false,
+    "$": false,
+    "React": false,
+
+    "process": false,
+    "require": false,
+    "module": false,
+    "Promise": true,
+
+    "sinon": false,
+    "chai": false,
+    "expect": false,
+    "describe": false,
+    "beforeEach": false,
+    "afterEach": false,
+    "before": false,
+    "after": false,
+    "it": false,
+
+    "H": false,
+    "type": false
+  },
+
+  "predef": [ "-Promise" ]
+}
