@@ -6,40 +6,75 @@
     var failures = 0;
 
     var root = document.getElementById('mocha');
+
     var screen = document.createElement('pre');
     root.appendChild(screen);
+
     var failureDetails = document.createElement('pre');
     root.appendChild(failureDetails);
 
     runner.on('pass', function(test) {
       passes++;
-      var dot = document.createElement('code');
-      dot.title = test.fullTitle();
-      dot.innerHTML = '.';
-      dot.className = 'success';
+
+      var dot = createDot(test.fullTitle());
       screen.appendChild(dot);
     });
 
     runner.on('fail', function(test, err) {
       failures++;
-      var f = document.createElement('code');
-      f.title = test.fullTitle() + ': ' + err.message;
-      f.innerHTML = 'F';
-      f.className = 'failure';
+
+      var testTitle = test.fullTitle();
+      var errorMessage = err.message;
+
+      var f = createF(testTitle, errorMessage);
       screen.appendChild(f);
 
-      var details = document.createElement('code');
-      details.innerHTML = test.fullTitle() + ':\n' + err.message;
-      details.className = 'failure-detail';
+      var details = createDetails(testTitle, errorMessage);
       failureDetails.appendChild(details);
     });
 
     runner.on('end', function() {
-      var end = document.createElement('code');
-      end.innerHTML = '\n' + passes + ' of ' + (passes + failures) + ' passed';
-      end.className = 'end';
+      var end = createEnd(passes, failures);
       screen.appendChild(end);
     });
+  }
+
+  function createDot(testTitle) {
+    var dot = document.createElement('code');
+
+    dot.title = testTitle;
+    dot.innerHTML = '.';
+    dot.className = 'success';
+
+    return dot;
+  }
+
+  function createF(testTitle, errorMessage) {
+    var f = document.createElement('code');
+
+    f.title = testTitle + ': ' + errorMessage;
+    f.innerHTML = 'F';
+    f.className = 'failure';
+
+    return f;
+  }
+
+  function createDetails(testTitle, errorMessage) {
+    var details = document.createElement('code');
+
+    details.innerHTML = testTitle + ':\n' + errorMessage;
+    details.className = 'failure-detail';
+
+    return details;
+  }
+
+  function createEnd(passes, failures) {
+    var end = document.createElement('code');
+
+    end.innerHTML = '\n' + passes + ' of ' + (passes + failures) + ' passed';
+    end.className = 'end';
+
+    return end;
   }
 
   window.HTMLDotReporter = HTMLDotReporter;
