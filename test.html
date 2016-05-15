@@ -9,18 +9,29 @@
 
   <script src="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js"></script>
   <script src="https://cdn.rawgit.com/chaijs/chai/3.5.0/chai.js"></script>
+  <script src="index.js"></script>
 
   <script>
     mocha.setup('bdd');
+    mocha.__initialReporter = mocha._reporter;
+    mocha.reporter(HTMLDotReporter);
+
     window.expect = chai.expect;
+  </script>
+
+  <script src="sample-tests.js"></script>
+
+  <script>
+    mocha.checkLeaks();
+    mocha.run();
   </script>
 
   <script src="test.js"></script>
 
+  <h2>This is a sample test run. Check the browser console for the actual test results.</h2>
+
   <script>
-    mocha.checkLeaks();
-    mocha.globals(['jQuery']);
-    mocha.run();
+    
   </script>
 </body>
 </html>

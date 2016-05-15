@@ -5,8 +5,11 @@
   },
   "globals": {
     "console": false,
-    "tape": false,
-    "_": false
+    "describe": false,
+    "it": false,
+    "beforeEach": false,
+    "afterEach": false,
+    "expect": false
   },
   "rules": {
     "comma-dangle": 2,
