@@ -6,9 +6,6 @@
   "scripts": {
     "test": "make"
   },
-  "devDependencies": {
-    "lintspaces-cli": "0.0.4"
-  },
   "repository": {
     "type": "git",
     "url": "git@github.com:gurdiga/mocha-html-dot-reporter.git"
