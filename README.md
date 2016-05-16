@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/gurdiga/mocha-html-dot-reporter/badges/gpa.svg)](https://codeclimate.com/github/gurdiga/mocha-html-dot-reporter)
+
 A Mocha browser reporter that draws a line of dots and “F”s. To use it, say:
 ```javascript
 mocha.reporter(HTMLDotReporter);
