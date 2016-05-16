@@ -38,6 +38,11 @@
       assertEqual(failureDetails.className, 'failure-detail', 'failure details have the appropriate class');
       assertEqual(failureDetails.textContent, 'tests this one will fail:\nexpected true to equal false',
         'failure detais provide more details about the failing assertions');
+
+      var duration = root.querySelector('pre:nth-child(3)');
+      assertEqual(toString(duration), '[object HTMLPreElement]', 'duration report is rendered');
+      assertEqual(duration.textContent.length > 0, true, 'duration report has some text');
+      assertEqual(/test run time: \d+.\d{1,3}s/.test(duration.textContent), true, 'duration report looks like a number of seconds');
     } catch (error) {
       testResults.innerHTML += '\n<strong>FAILED: ' + error.message + '</strong>';
     }

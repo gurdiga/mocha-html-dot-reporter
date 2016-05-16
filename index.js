@@ -4,6 +4,8 @@
   function HTMLDotReporter(runner) {
     var passes = 0;
     var failures = 0;
+    var startTime = new Date();
+    var endTime;
 
     var root = document.getElementById('mocha');
 
@@ -36,6 +38,11 @@
     runner.on('end', function() {
       var end = createEnd(passes, failures);
       screen.appendChild(end);
+
+      endTime = new Date();
+
+      var durationReport = createDurationReport(startTime, endTime);
+      root.appendChild(durationReport);
     });
   }
 
@@ -75,6 +82,13 @@
     end.className = 'end';
 
     return end;
+  }
+
+  function createDurationReport(startTime, endTime) {
+    var durationReport = document.createElement('pre');
+    var seconds = (endTime - startTime) / 1000;
+    durationReport.textContent = 'test run time: ' + seconds + 's';
+    return durationReport;
   }
 
   window.HTMLDotReporter = HTMLDotReporter;
