@@ -21,3 +21,11 @@ expected 'this failing test' to not exist
 
 test run time: 0.016s
 ```
+
+### Tests
+
+Yes, this is a test reporter that has tests itself! 8-)
+
+Just open `tests.html` in the browser (You need to be on-line because
+tge test runner comes from a CDN. -- I wanted to keep the source code as
+lean as possible.)
