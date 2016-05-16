@@ -2,16 +2,19 @@
   'use strict';
 
   setTimeout(function() {
-    var root = document.getElementById('mocha');
+    try {
+      var root = document.getElementById('mocha');
+      var testResults = document.getElementById('test-results');
 
-    assert(root.innerHTML.length > 0, 'the reporter rendered something');
+      assert(root.innerHTML.length > 0, 'the reporter rendered something');
+    } catch (error) {
+      testResults.innerHTML += '\n' + error.message;
+    }
 
-    console.log('TODO: make assertions on the markup', root.innerHTML);
+    function assert(condition, message) {
+      if (condition) testResults.innerHTML += message + ' -- passed';
+      else throw new Error(message);
+    }
   });
-
-  function assert(condition, message) {
-    if (condition) console.log(message, '-- passed');
-    else throw new Error(message);
-  }
 
 }());
