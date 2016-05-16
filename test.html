@@ -13,7 +13,6 @@
 
   <script>
     mocha.setup('bdd');
-    mocha.__initialReporter = mocha._reporter;
     mocha.reporter(HTMLDotReporter);
 
     window.expect = chai.expect;
@@ -22,16 +21,11 @@
   <script src="sample-tests.js"></script>
 
   <script>
-    mocha.checkLeaks();
     mocha.run();
   </script>
 
   <script src="test.js"></script>
 
   <h2>This is a sample test run. Check the browser console for the actual test results.</h2>
-
-  <script>
-    
-  </script>
 </body>
 </html>
