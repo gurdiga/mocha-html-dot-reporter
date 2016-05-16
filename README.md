@@ -16,4 +16,6 @@ Here is a sample output:
 
 The smoke test fails:
 expected 'this failing test' to not exist
+
+test run time: 0.016s
 ```
