@@ -7,6 +7,8 @@ pre-commit: lint
 deploy:
 	npm publish
 
+publish: deploy
+
 tag:
 	git tag v`grep '"version"' package.json | grep -P -o '\d+\.\d+\.\d+'`
 
