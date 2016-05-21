@@ -7,4 +7,7 @@ pre-commit: lint
 deploy:
 	npm publish
 
+tag:
+	git tag v`grep '"version"' package.json | grep -P -o '\d+\.\d+\.\d+'`
+
 include $(shell find makefiles -name '*.mk' | sort)
