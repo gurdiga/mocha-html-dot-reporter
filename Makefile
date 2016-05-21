@@ -13,6 +13,6 @@ tag:
 	git tag v`grep '"version"' package.json | grep -P -o '\d+\.\d+\.\d+'`
 
 push:
-	git push --tags
+	git push && git push --tags
 
 include $(shell find makefiles -name '*.mk' | sort)
