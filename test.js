@@ -18,7 +18,10 @@
       assertEqual(toString(secondResult), '[object HTMLElement]', 'second result is rendered');
       assertEqual(secondResult.className, 'failure', 'second result is a success');
       assertEqual(secondResult.textContent, 'F', 'second result renders an F');
-      assertEqual(secondResult.title, 'tests this one will fail: expected true to equal false',
+      assertEqual(secondResult.title,
+        'tests this one will fail: this is a long assertion failure message ' +
+        'that should come out in the failure details section and should wrap: ' +
+        'expected true to equal false',
         'second result’s F has the appropriate title');
 
       var thirdResult = root.querySelector('pre:nth-child(1)>code:nth-child(3)');
@@ -33,10 +36,13 @@
       assertEqual(summary.textContent.trim(), '2 of 3 passed', 'summary tells how many of how many passed');
       assertEqual(summary.querySelectorAll('.number').length, 2, 'summary emphasizes the number');
 
-      var failureDetails = root.querySelector('pre:nth-child(2)>code:nth-child(1)');
-      assertEqual(toString(failureDetails), '[object HTMLElement]', 'failure details are rendered');
+      var failureDetails = root.querySelector('pre:nth-child(2)>pre:nth-child(1)');
+      assertEqual(toString(failureDetails), '[object HTMLPreElement]', 'failure details are rendered');
       assertEqual(failureDetails.className, 'failure-detail', 'failure details have the appropriate class');
-      assertEqual(failureDetails.textContent, 'tests this one will fail:\nexpected true to equal false',
+      assertEqual(failureDetails.style.whiteSpace, 'pre-line', 'wrap the assertion failure message');
+      assertEqual(failureDetails.textContent, 'tests this one will fail:\n' +
+        'this is a long assertion failure message that should come out in the failure details section and should wrap: ' +
+        'expected true to equal false',
         'failure detais provide more details about the failing assertions');
 
       var duration = root.querySelector('pre:nth-child(3)');

@@ -67,8 +67,9 @@
   }
 
   function createDetails(testTitle, errorMessage) {
-    var details = document.createElement('code');
+    var details = document.createElement('pre');
 
+    details.style.whiteSpace = 'pre-line';
     details.innerHTML = testTitle + ':\n' + errorMessage;
     details.className = 'failure-detail';
 
