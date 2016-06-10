@@ -4,10 +4,8 @@ JSON_FILES=package.json
 default: pre-commit
 pre-commit: lint
 
-deploy:
+deploy: tag push deploy
 	npm publish
-
-publish: tag push deploy
 
 tag:
 	git tag v`grep '"version"' package.json | grep -P -o '\d+\.\d+\.\d+'`
