@@ -1,6 +1,6 @@
 {
   "name": "mocha-html-dot-reporter",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A Mocha browser reporter that draws a line of dots and “F”s.",
   "files": "index.js",
   "main": "index.js",
