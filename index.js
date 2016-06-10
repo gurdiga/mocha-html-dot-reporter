@@ -10,6 +10,8 @@
     var root = document.getElementById('mocha');
 
     var screen = document.createElement('pre');
+    screen.style.whiteSpace = 'pre-wrap';
+    screen.style.wordWrap = 'break-word';
     root.appendChild(screen);
 
     var failureDetails = document.createElement('pre');

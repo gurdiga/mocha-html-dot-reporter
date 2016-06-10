@@ -8,6 +8,10 @@
 
       assertEqual(root.innerHTML.length > 0, true, 'rendered something');
 
+      var screen = root.firstChild;
+      assertEqual(screen.style.whiteSpace, 'pre-wrap', 'screen has the appropriate white-space wrapping');
+      assertEqual(screen.style.wordWrap, 'break-word', 'screen wraps the long line of dots and Fs');
+
       var firstResult = root.querySelector('pre:nth-child(1)>code:nth-child(1)');
       assertEqual(toString(firstResult), '[object HTMLElement]', 'first result is rendered');
       assertEqual(firstResult.className, 'success', 'first result is a success');
