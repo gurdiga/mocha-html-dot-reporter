@@ -47,16 +47,7 @@
       assertEqual(failureDetails.textContent, 'tests this one will fail:\n' +
         'AssertionError: this is a long assertion failure message that should come out in the ' +
           'failure details section and should wrap: expected true to equal false\n' +
-        '    at Context. (sample-tests.js:10:23)\n' +
-        '    at callFn (https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js:4562:21)\n' +
-        '    at Test.Runnable.run (https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js:4555:7)\n' +
-        '    at Runner.runTest (https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js:4974:10)\n' +
-        '    at https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js:5057:12\n' +
-        '    at next (https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js:4899:14)\n' +
-        '    at https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js:4909:7\n' +
-        '    at next (https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js:4844:23)\n' +
-        '    at https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js:4876:5\n' +
-        '    at timeslice (https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js:6483:27)'
+        '    at Context. (sample-tests.js:10:23)'
         );
 
       var duration = root.querySelector('pre:nth-child(3)');

@@ -2,7 +2,7 @@ JS_FILES=index.js test.js sample-tests.js
 JSON_FILES=package.json
 
 default: pre-commit
-pre-commit: lint
+pre-commit: lib lint
 
 deploy: tag push deploy
 	npm publish
