@@ -24,16 +24,15 @@
       screen.appendChild(dot);
     });
 
-    runner.on('fail', function(test, err) {
+    runner.on('fail', function(test, error) {
       failures++;
 
       var testTitle = test.fullTitle();
-      var errorMessage = err.message;
 
-      var f = createF(testTitle, errorMessage);
+      var f = createF(testTitle, error.message);
       screen.appendChild(f);
 
-      var details = createDetails(testTitle, errorMessage);
+      var details = createDetails(testTitle, error.stack);
       failureDetails.appendChild(details);
     });
 
@@ -68,11 +67,11 @@
     return f;
   }
 
-  function createDetails(testTitle, errorMessage) {
+  function createDetails(testTitle, errorStack) {
     var details = document.createElement('pre');
 
     details.style.whiteSpace = 'pre-line';
-    details.innerHTML = testTitle + ':\n' + errorMessage;
+    details.innerHTML = testTitle + ':\n' + errorStack;
     details.className = 'failure-detail';
 
     return details;
