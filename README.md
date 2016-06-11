@@ -22,6 +22,14 @@ expected 'this failing test' to not exist
 test run time: 0.016s
 ```
 
+### Installation
+
+`npm install mocha-html-dot-reporter`
+
+or
+
+`curl https://raw.githubusercontent.com/gurdiga/mocha-html-dot-reporter/latest-release/index.js > mocha-html-dot-reporter.js`
+
 ### Tests
 
 Yes, this is a test reporter that has tests itself! 8-)
