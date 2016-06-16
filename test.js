@@ -47,7 +47,7 @@
       assertEqual(failureDetails.textContent, 'tests this one will fail:\n' +
         'AssertionError: this is a long assertion failure message that should come out in the ' +
           'failure details section and should wrap: expected true to equal false\n' +
-        '    at Context. (sample-tests.js:10:23)'
+        '    at Context.<anonymous> (sample-tests.js:10:23)'
         );
 
       var duration = root.querySelector('pre:nth-child(3)');

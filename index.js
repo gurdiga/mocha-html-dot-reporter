@@ -71,7 +71,7 @@
     var details = document.createElement('pre');
 
     details.style.whiteSpace = 'pre-line';
-    details.innerHTML = testTitle + ':\n' + errorStack;
+    details.textContent = testTitle + ':\n' + errorStack;
     details.className = 'failure-detail';
 
     return details;
