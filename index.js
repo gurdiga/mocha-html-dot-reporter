@@ -51,7 +51,7 @@
     var dot = document.createElement('code');
 
     dot.title = testTitle;
-    dot.innerHTML = '.';
+    dot.textContent = '.';
     dot.className = 'success';
 
     return dot;
@@ -61,7 +61,7 @@
     var f = document.createElement('code');
 
     f.title = testTitle + ': ' + errorMessage;
-    f.innerHTML = 'F';
+    f.textContent = 'F';
     f.className = 'failure';
 
     return f;
@@ -80,7 +80,7 @@
   function createEnd(passes, failures) {
     var end = document.createElement('code');
 
-    end.innerHTML = '\n' + passes + ' of ' + (passes + failures) + ' passed';
+    end.textContent = '\n' + passes + ' of ' + (passes + failures) + ' passed';
     end.className = 'end';
 
     return end;
