@@ -14,6 +14,8 @@
     it('this one will pass too', function() {
       expect(true).to.equal(true);
     });
+
+    it('a pending test');
   });
 
 }());

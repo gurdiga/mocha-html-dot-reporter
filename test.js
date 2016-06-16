@@ -34,11 +34,17 @@
       assertEqual(thirdResult.textContent, '.', 'third result renders a dot');
       assertEqual(thirdResult.title, 'tests this one will pass too', 'third result’s dot has the appropriate title');
 
-      var summary = root.querySelector('pre:nth-child(1)>code:nth-child(4)');
+      var fourthResult = root.querySelector('pre:nth-child(1)>code:nth-child(4)');
+      assertEqual(toString(fourthResult), '[object HTMLElement]', 'fourth result is rendered');
+      assertEqual(fourthResult.className, 'pending', 'fourth result is a pending test');
+      assertEqual(fourthResult.textContent, '*', 'fourth result renders an asterisk');
+      assertEqual(fourthResult.title, 'tests a pending test', 'fourth result’s asterisk has the appropriate title');
+
+      var summary = root.querySelector('pre:nth-child(1)>code:nth-child(5)');
       assertEqual(toString(summary), '[object HTMLElement]', 'summary is rendered');
       assertEqual(summary.className, 'end', 'fourth thing is the summary');
-      assertEqual(summary.textContent.trim(), '2 of 3 passed', 'summary tells how many of how many passed');
-      assertEqual(summary.querySelectorAll('.number').length, 2, 'summary emphasizes the number');
+      assertEqual(summary.textContent.trim(), '2 of 3 passed, 1 pending', 'summary tells how many of how many passed');
+      assertEqual(summary.querySelectorAll('.number').length, 3, 'summary emphasizes the number');
 
       var failureDetails = root.querySelector('pre:nth-child(2)>pre:nth-child(1)');
       assertEqual(toString(failureDetails), '[object HTMLPreElement]', 'failure details are rendered');

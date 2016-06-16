@@ -4,6 +4,7 @@
   function HTMLDotReporter(runner) {
     var passes = 0;
     var failures = 0;
+    var pending = 0;
     var startTime = new Date();
     var endTime;
 
@@ -24,6 +25,13 @@
       screen.appendChild(dot);
     });
 
+    runner.on('pending', function(test) {
+      pending++;
+
+      var asterisk = createAsterisk(test.fullTitle());
+      screen.appendChild(asterisk);
+    });
+
     runner.on('fail', function(test, error) {
       failures++;
 
@@ -37,7 +45,7 @@
     });
 
     runner.on('end', function() {
-      var end = createEnd(passes, failures);
+      var end = createEnd(passes, failures, pending);
       screen.appendChild(end);
 
       endTime = new Date();
@@ -53,6 +61,16 @@
     dot.title = testTitle;
     dot.textContent = '.';
     dot.className = 'success';
+
+    return dot;
+  }
+
+  function createAsterisk(testTitle) {
+    var dot = document.createElement('code');
+
+    dot.title = testTitle;
+    dot.textContent = '*';
+    dot.className = 'pending';
 
     return dot;
   }
@@ -77,10 +95,11 @@
     return details;
   }
 
-  function createEnd(passes, failures) {
+  function createEnd(passes, failures, pending) {
     var end = document.createElement('code');
 
-    end.textContent = '\n' + passes + ' of ' + (passes + failures) + ' passed';
+    end.textContent = '\n' + passes + ' of ' + (passes + failures) + ' passed' +
+      (pending === 0 ? '' : ', ' + pending + ' pending');
     end.className = 'end';
 
     return end;
